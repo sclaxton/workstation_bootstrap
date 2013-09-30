@@ -22,25 +22,20 @@ then
 	open https://www.dropbox.com/downloading?os=mac
 	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 	brew install git
-	\cp ${PWD}/terminal.app-solarized/com.apple.Terminal.plist ${HOME}/Library/Preferences		
 fi
 echo "move bashrc and aliases to appropriate places..."
 \cp ${PWD}/.bashrc ${HOME}
 \cp ${PWD}/.bash_aliases ${HOME}
 \cp ${PWD}/.bash_profile ${HOME}
 echo "uninstalling spf13 config to reinstall..."
+chmod +x sudo ${PWD}/spf13-vim/uninstall.sh
 sudo ${PWD}/spf13-vim/uninstall.sh
 echo "reinstalling spf13 config for vim..."
+chmod +x ${PWD}/spf13-vim/bootstrap.sh
 sudo ${PWD}/spf13-vim/bootstrap.sh
 echo "make vim pretty..."
 \cp ${PWD}/vim-colors-solarized/colors/solarized.vim ${HOME}/.vim
-echo "make custom git command prompt..."
-\cp ${PWD}/.git-prompt.sh ${HOME}
-echo "load private key..."
-chmod 600 ${PWD}/id_rsa
-ssh-add ${PWD}/id_rsa
 echo "launch vm command..."
 chmod +x ${PWD}/vm
 PATH=$PATH:${HOME}/Dropbox/spencerclaxton/
 export PATH
-
