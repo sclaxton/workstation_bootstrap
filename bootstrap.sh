@@ -3,7 +3,7 @@ echo "determie OS..."
 if `echo ${OSTYPE} | grep "linux" 1>/dev/null 2>&1`
 then
 	if `uname -m | grep "64" 1>/dev/null 2>&1`
-	then			
+	then
 		cd ${HOME} && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 	elif `uname -m | grep "32" 1>/dev/null 2>&1`
     then
@@ -27,9 +27,6 @@ echo "move bashrc and aliases to appropriate places..."
 \cp ${PWD}/.bashrc ${HOME}
 \cp ${PWD}/.bash_aliases ${HOME}
 \cp ${PWD}/.bash_profile ${HOME}
-echo "uninstalling spf13 config to reinstall..."
-chmod +x sudo ${PWD}/spf13-vim/uninstall.sh
-sudo ${PWD}/spf13-vim/uninstall.sh
 echo "reinstalling spf13 config for vim..."
 chmod +x ${PWD}/spf13-vim/bootstrap.sh
 sudo ${PWD}/spf13-vim/bootstrap.sh
