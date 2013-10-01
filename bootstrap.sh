@@ -58,6 +58,8 @@ mac_config() {
     brew upgrade git
 }
 general_config() {
+    git config --global user.email "saclaxton@gmail.com"
+    git config --global user.name "Spencer Claxton"
     echo "move bashrc and aliases to appropriate places..."
     \cp ${PWD}/.bashrc ${HOME}
     \cp ${PWD}/.bash_aliases ${HOME}
@@ -67,7 +69,7 @@ general_config() {
     sudo ${PWD}/spf13-vim/bootstrap.sh
     echo "launch vm command..."
     chmod +x ${PWD}/vm
-    PATH=$PATH:${HOME}/Dropbox/spencerclaxton/
+    PATH=$PATH:${PWD}
     export PATH
 }
 

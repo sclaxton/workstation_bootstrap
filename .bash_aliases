@@ -2,6 +2,7 @@ alias aliases="cat ~/.bash_aliases"
 alias cd="pushd"
 alias dc="popd"
 alias chx="chmod +x"
+alias vim="/usr/local/Cellar/vim/7.4.027/bin/vim"
 alias v="vim -p"
 alias sv="sudo vim -p"
 alias c='clear'                                       # clear screen
