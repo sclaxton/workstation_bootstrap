@@ -35,7 +35,7 @@ mac_cli_tools(){
     curl "$DMGURL" -o "$TOOLS"
     TMPMOUNT=`/usr/bin/mktemp -d /tmp/clitools.XXXX`
     hdiutil attach "$TOOLS" -mountpoint "$TMPMOUNT"
-    installer -pkg "$(find $TMPMOUNT -name '*.mpkg')" -target /
+    sudo installer -pkg "$(find $TMPMOUNT -name '*.mpkg')" -target /
     hdiutil detach "$TMPMOUNT"
     rm -rf "$TMPMOUNT"
     rm "$TOOLS"
