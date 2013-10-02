@@ -89,7 +89,7 @@ vim_config(){
 }
 general_config() {
     bash_config
-    vim_config
+    #vim_config
     git_config
     python_config
     echo "Launch vm command..."
