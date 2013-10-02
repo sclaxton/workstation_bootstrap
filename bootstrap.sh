@@ -61,28 +61,43 @@ mac_config() {
     brew upgrade vim
     brew upgrade git
 }
-general_config() {
+python_config(){
     echo "Install pip..."
     sudo easy_install pip
+    easy_install -U mock
+    pip install -U mock
+
+}
+git_config(){
     echo "Identify git..."
     git config --global user.email "saclaxton@gmail.com"
     git config --global user.name "Spencer Claxton"
+    git config --global credential.helper cache
+    ORIGIN=https://github.com/sclaxton/workstation_bootstrap.git
+    git init ${PWD} && git add origin ${ORIGIN} && git pull origin master
+}
+bash_config(){
     echo "move bashrc and aliases to appropriate places..."
     \cp ${PWD}/.bashrc ${HOME}
     \cp ${PWD}/.bash_aliases ${HOME}
     \cp ${PWD}/.bash_profile ${HOME}
+}
+vim_config(){
     echo "installing/updating spf13 platform for vim..."
     chmod +x ${PWD}/spf13-vim/bootstrap.sh
     sudo ${PWD}/spf13-vim/bootstrap.sh
+}
+general_config() {
+    bash_config
+    vim_config
+    git_config
+    python_config
     echo "Launch vm command..."
     chmod +x ${PWD}/vm
     if [ ! -a ${HOME}/bin/ ]
     then sudo mkdir ${HOME}/bin/
     fi
     \cp ${PWD}/vm ${HOME}/bin/
-    echo "reinstalling spf13 config for vim..."
-    chmod +x ${PWD}/spf13-vim/bootstrap.sh
-    sudo ${PWD}/spf13-vim/bootstrap.sh
 }
 
 # Main Script
