@@ -1,6 +1,5 @@
 #!/bin/bash
 while [  0 -lt 10 ]; do
-      cp ~/.zlatex_preamble.tex ./zLaTex-Preamble.tex
       tex="`ls *.tex | head -n1`"; diff $tex .last > /dev/null
       rs=$?
       if [ $rs != "0" ] 
