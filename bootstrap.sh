@@ -6,26 +6,22 @@ linux_config(){
     fi
     sudo apt-get update vim && sudo apt-get dist-upgrade vim
 	chmod +x ${PWD}/configure.py
-	sudo add-apt-repository ppa:gnome-terminator
 	sudo apt-get update
+	sudo add-apt-repository ppa:gnome-terminator
     if [ ! `dpkg --get-selections | grep *terminator* 1>/dev/null 2>&1`]
     then
         sudo apt-get install terminator
     fi
 	mkdir -p ${HOME}/.config/terminator/
+	\cp ${PWD}/terminator-solarized/config ${HOME}/.config/terminator/
     if [ ! `dpkg --get-selections | grep *git* 1>/dev/null 2>&1`]
     then
         sudo apt-get install git
     fi
-<<<<<<< HEAD
     if [ ! `dpkg --get-selections | grep *python-setuptools* 1>/dev/null 2>&1`]
     then
         sudo apt-get install python-setuptools
     fi
-
-=======
->>>>>>> 4ca07ff992a99446985da2e8d8a3c7ec847f66fb
-	\cp ${PWD}/terminator-solarized/config ${HOME}/.config/terminator/
 	echo "source db command..."
 	\cp ${PWD}/control.py ${HOME}/bin/bash
 }
@@ -66,19 +62,15 @@ mac_config() {
     brew upgrade git
 }
 general_config() {
-<<<<<<< HEAD
     echo "Install pip..."
     sudo easy_install pip
     echo "Identify git..."
-=======
->>>>>>> 4ca07ff992a99446985da2e8d8a3c7ec847f66fb
     git config --global user.email "saclaxton@gmail.com"
     git config --global user.name "Spencer Claxton"
     echo "move bashrc and aliases to appropriate places..."
     \cp ${PWD}/.bashrc ${HOME}
     \cp ${PWD}/.bash_aliases ${HOME}
     \cp ${PWD}/.bash_profile ${HOME}
-<<<<<<< HEAD
     echo "installing/updating spf13 platform for vim..."
     chmod +x ${PWD}/spf13-vim/bootstrap.sh
     sudo ${PWD}/spf13-vim/bootstrap.sh
@@ -88,15 +80,9 @@ general_config() {
     then sudo mkdir ${HOME}/bin/
     fi
     \cp ${PWD}/vm ${HOME}/bin/
-=======
     echo "reinstalling spf13 config for vim..."
     chmod +x ${PWD}/spf13-vim/bootstrap.sh
     sudo ${PWD}/spf13-vim/bootstrap.sh
-    echo "launch vm command..."
-    chmod +x ${PWD}/vm
-    PATH=$PATH:${PWD}
-    export PATH
->>>>>>> 4ca07ff992a99446985da2e8d8a3c7ec847f66fb
 }
 
 # Main Script
