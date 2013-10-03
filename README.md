@@ -5,7 +5,7 @@ This repo contains files necessary to run a bootstrap script to configure a work
 
 
 Directions
-==========
+----------
 
 Just run the bootstrap.sh script to bootstrap a work station. 
 
@@ -13,7 +13,7 @@ If running on OSX the terminal.app color scheme must be manually changed to Sola
 
 
 Contents
-========
+--------
 
 The bootstrap configures bash and vim. Bash is configured to a custom configuration while vim is configured to the [spf13](https://github.com/spf13/spf13-vim) platform.
 Both configurations use the [Solarized](http://ethanschoonover.com/solarized) dark colorscheme. 
@@ -21,6 +21,6 @@ Both configurations use the [Solarized](http://ethanschoonover.com/solarized) da
 The script runs on both OSX and linux operating systems and is compatible with terminal.app and Terminator. 
 
 Maintainance
-============
+------------
 
 Will be maintaining this repo for personal use. 
