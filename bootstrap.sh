@@ -91,8 +91,8 @@ mac_config() {
 python_config(){
     echo "Install pip..."
     sudo easy_install pip
-    easy_install -U mock
-    pip install -U mock
+    sudo easy_install -U mock
+    sudo pip install -U mock
 
 }
 # Add git config to .bashrc so git configures on login
@@ -105,7 +105,7 @@ git_config(){
     echo "Sync repo with origin..."
     command="git init ${PWD} && git add origin ${ORIGIN} && git pull origin master"
     newl=$'\n'
-    echo $email${newl}${user}${newl}${pass}${newl}${command}  >> ${PWD}/.bashrc
+    echo "${email}${newl}${user}${newl}${pass}${newl}${command}"  >> ${PWD}/.bashrc
 }
 # Populate .bash files on bootsrapped system
 bash_config(){
@@ -122,9 +122,9 @@ vim_config(){
 }
 # configure general settings after running all the specific configs
 general_config() {
+    git_config
     bash_config
     vim_config
-    git_config
     python_config
     echo "Launch vm command..."
     chmod +x ${PWD}/vm
