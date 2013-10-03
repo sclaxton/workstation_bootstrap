@@ -26,8 +26,9 @@ linux_config(){
         sudo apt-get install python-setuptools
     fi
 	echo "source db command..."
-	\cp ${PWD}/control.py ${HOME}/bin/bash
+	sudo \cp ${PWD}/control.py ${HOME}/bin/bash
 }
+# Installs CLI tools distributed with Mac dev tools
 mac_cli_tools(){
     echo "downloading apple developer cli tools"
     osx_vers=$(sw_vers -productVersion | awk -F "." '{print $2}')
@@ -101,9 +102,9 @@ git_config(){
     echo "Identify git..."
     email='git config --global user.email "saclaxton@gmail.com"'
     user='git config --global user.name "Spencer Claxton"'
-    pass='git config --global credential.helper cache'i
+    pass='git config --global credential.helper cache'
     echo "Sync repo with origin..."
-    command="git init ${PWD} && git add origin ${ORIGIN} && git pull origin master"
+    command="git init ${PWD} && git remote add origin ${ORIGIN} && git pull origin master"
     newl=$'\n'
     echo "${email}${newl}${user}${newl}${pass}${newl}${command}"  >> ${PWD}/.bashrc
 }
