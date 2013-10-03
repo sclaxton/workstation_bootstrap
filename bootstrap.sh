@@ -1,6 +1,6 @@
 #!/bin/sh
 ORIGIN=https://github.com/sclaxton/workstation_bootstrap.git
-VIMVER=7.4
+VIMVER=7.3.692
 PYTHONVER=2.7.2
 linux_config(){
     if [ ! `dpkg --get-selections | grep *vim* 1>/dev/null 2>&1`]
