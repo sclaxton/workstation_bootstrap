@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+zcd () { builtin cd "$1"; pwd;}
+=======
 #!/bin/sh
 VIMVER=7.3
 parse_version() {
@@ -21,3 +24,14 @@ brew_version() {
     (cd `brew --prefix`; brew uninstall $1; ${formula}; brew install $1; brew unlink $1 && brew link --overwrite $1)
 }
 
+brew_version vim $VIMVER
+hi\nhi
+hi\nhi
+hi hi
+n
+\n
+
+
+test
+test
+>>>>>>> ca97b7cfc8d34d3410ed3be494892d19f761bba1

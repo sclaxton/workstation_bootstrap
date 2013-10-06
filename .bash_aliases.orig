@@ -2,7 +2,11 @@ alias aliases="cat ~/.bash_aliases"
 alias cd="pushd"
 alias dc="popd"
 alias chx="chmod +x"
+<<<<<<< HEAD
+alias vim="/usr/local/Cellar/vim/7.4.027/bin/vim"
+=======
 alias vim="/usr/local/bin/vim"
+>>>>>>> ca97b7cfc8d34d3410ed3be494892d19f761bba1
 alias vi="vim -p"
 alias v="vim -p"
 alias sv="sudo vim -p"

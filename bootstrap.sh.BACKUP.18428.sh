@@ -26,8 +26,14 @@ linux_config(){
         sudo apt-get install python-setuptools
     fi
 	echo "source db command..."
+<<<<<<< HEAD
 	\cp ${PWD}/control.py ${HOME}/bin/bash
 }
+=======
+	sudo \cp ${PWD}/control.py ${HOME}/bin/bash
+}
+# Installs CLI tools distributed with Mac dev tools
+>>>>>>> ca97b7cfc8d34d3410ed3be494892d19f761bba1
 mac_cli_tools(){
     echo "downloading apple developer cli tools"
     osx_vers=$(sw_vers -productVersion | awk -F "." '{print $2}')
@@ -93,17 +99,25 @@ python_config(){
     sudo easy_install pip
     sudo easy_install -U mock
     sudo pip install -U mock
-    sudo pip install virtualenv
-    sudo pip install
 
 }
 # Add git config to .bashrc so git configures on login
 # Sync downloaded folder with remote github repo for versioning
 git_config(){
     echo "Identify git..."
+    email='git config --global user.email "saclaxton@gmail.com"'
+    user='git config --global user.name "Spencer Claxton"'
+<<<<<<< HEAD
+    pass='git config --global credential.helper cache'i
     echo "Sync repo with origin..."
     command="git init ${PWD} && git add origin ${ORIGIN} && git pull origin master"
-    echo "${command}"  >> ${HOME}/.bashrc
+=======
+    pass='git config --global credential.helper cache'
+    echo "Sync repo with origin..."
+    command="git init ${PWD} && git remote add origin ${ORIGIN} && git pull origin master"
+>>>>>>> ca97b7cfc8d34d3410ed3be494892d19f761bba1
+    newl=$'\n'
+    echo "${email}${newl}${user}${newl}${pass}${newl}${command}"  >> ${PWD}/.bashrc
 }
 # Populate .bash files on bootsrapped system
 bash_config(){
