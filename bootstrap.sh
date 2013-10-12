@@ -52,7 +52,7 @@ mac_cli_tools(){
 parse_version() {
     str=$1
     res=''
-    for (( i = 0; i < ${#1}; ++i)); do
+    for i in `seq 2 ${#1}` do
         curr=${str:i:1}
         if [ $curr == '.' ]
         then res=$res'\.'
