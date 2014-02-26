@@ -2,10 +2,6 @@ alias aliases="cat ~/.bash_aliases"
 alias cd="pushd"
 alias dc="popd"
 alias chx="chmod +x"
-if `echo ${OSTYPE} | grep "linux" 1>/dev/null 2>&1`
-then
-  alias vim="/usr/local/bin/vim"
-fi
 alias vi="vim -p"
 alias v="vim -p"
 alias sv="sudo vim -p"
